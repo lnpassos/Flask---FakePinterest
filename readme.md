@@ -1,6 +1,6 @@
 # Hey guys! Tudo certo por aí!?
 
-### Aqui está meu projeto em Flask realizando uma réplica próxima do Pinterest!
+### Aqui está meu projeto > AINDA EM CONSTRUÇÃO < em Flask realizando uma réplica próxima do Pinterest!
 
 link: https://flask-fakepinterest.onrender.com/
 
