@@ -2,6 +2,8 @@
 
 ### Aqui está meu projeto em Flask realizando uma réplica próxima do Pinterest!
 
+link: https://flask-fakepinterest.onrender.com/
+
 - Claro, não puxei todas a funcionalidades do Pinterest de cara, pois iria ficar enorme esse projeto.
 `Priorizei o CONCEITO e um código LIMPO / bem ESTRUTURADO!!`
 
