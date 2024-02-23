@@ -29,5 +29,6 @@
 - Apenas `incialize` o projeto em uma IDE pelo `main.py`
 
 
+OBS: Esse requirements.txt foi para deploy do site, acabei esquecendo de rodar esse app em um ambiente virtual, por isso tantas bibliotecas..
 
 # MUITO OBRIGADO!
