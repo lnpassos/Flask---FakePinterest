@@ -1,0 +1,429 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins';
+  color: #333;
+}
+
+nav {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  color: #c00;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: inline;
+}
+
+img {
+  width: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.logo-pinterest {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  column-gap: 4px;
+}
+
+.link-nav {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.link-nav:hover {
+  text-decoration: underline;
+}
+
+.restante-nav {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  width: fit-content;
+}
+
+.container-login {
+  padding-bottom: 100px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-h2 {
+  font-family: cursive;
+}
+
+.bg-imagem-pinterest {
+  width: 100%;
+  position: fixed;
+  top: 50vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.container-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+
+.popup {
+  /* display: none !important; */
+  width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  padding: 35px;
+  border-radius: 32px;
+  background-color: #fff;
+}
+
+.div-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+}
+
+.div-botao {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+  margin-top: 10px;
+}
+
+.label {
+  margin-right: auto;
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+.input {
+  width: 100%;
+  font-size: 16px;
+  padding: 15px;
+  border: 2px solid #cdcdcd;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-family: Montserrat;
+}
+
+.botao-login {
+  border-radius: 25px;
+  padding: 15px 20px;
+  width: 100%;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #e60023;
+  color: #fff;
+  transition: all .3s;
+}
+
+.botao-login:hover {
+  background-color: #d50c22;
+}
+
+.new-user {
+  color: #333;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+.new-user:hover {
+  transform: scale(1.05);
+}
+
+.link-criarconta {
+  color: #333;
+  text-decoration: none;
+}
+
+.link-criarconta:hover {
+  color: #333;
+}
+
+.div-botao {
+  display: flex;
+}
+
+.img-perfil {
+  width: 150px;
+  cursor: pointer;
+}
+
+.username-title {
+  color: rgb(93, 15, 112);
+  font-size: 35px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.botao-perfil a {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all .3s;
+}
+
+.botao-perfil a:hover {
+  background-color: #777;
+  text-decoration: none;
+}
+
+.conteudo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  width: 100%;
+  max-width: 1360px; /* Limite de 1360px */
+  margin: 0 auto; /* Centralizar conteúdo */
+  column-gap: 10px;
+  row-gap: 30px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.bloco-imagem {
+  text-decoration: none;
+}
+
+.bloco-imagem img {
+  border-radius: 7px;
+  height: 40vh;
+  object-fit: cover;
+  transition: all .3s;
+}
+
+.bloco-imagem img:hover {
+  transform: scale(1.03);
+}
+
+.bloco-add-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.delete-btn {
+  color: red;
+  border: none;
+  background-color: none;
+  position: relative;
+  top: -20px;
+  left: 10px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.botao-arquivo {
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: 0;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.bloco-arquivo {
+  background-color: #eee;
+  padding: 10px 10px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  transition: all .3s ;
+}
+
+.bloco-arquivo:hover {
+  transform: scale(1.1);
+}
+
+.post-usuario,
+.name-user {
+  position: relative;
+  display: flex;
+  top: -2px;
+  justify-content: center;
+  color: rgb(93, 15, 112);
+  font-weight: 600;
+  font-size: 11px;
+  border-radius: 4px;
+}
+
+.name-user {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+
+.input-arquivo {
+  display: none;
+}
+
+#imagem-arquivo {
+  display: none;
+}
+
+#imagem-arquivo.visivel {
+  display: inline-block;
+}
+
+.bloco-add-img .botao-login {
+  width: auto;
+}
+
+.bloco-input-botao {
+  display: flex;
+  column-gap: 20px;
+}
+
+.error-message {
+  color: red;
+}
+
+
+    /* Adicionando estilo para o ícone do menu */
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+  }
+
+  .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 4px 0;
+  }
+
+  /* Estilo do menu dropdown para telas menores */
+  .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 16px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+  }
+
+  .mobile-menu a {
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+  }
+
+  /* Mostrar/ocultar menu dropdown com base no clique no ícone do menu */
+  @media (max-width: 450px) {
+    
+      .menu-icon {
+          display: flex;
+      }
+
+      .restante-nav {
+          display: none;
+      }
+
+      .mobile-menu {
+          display: flex;
+      }
+
+    .link-nav {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      text-decoration: none;
+      border: none;
+      background-color: none;
+    }
+
+    /* Estilo para os links no menu dropdown */
+    .mobile-menu a {
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      background-color: none;
+    }
+
+    .botao-perfil a  {
+      background-color: none;
+      color: #333;
+    }
+
+    .mobile-menu .link-nav {
+      background-color: white;
+      color: #333;
+      border-radius: 0px;
+    }
+
+    #perfil-nav,
+    #sair-nav {
+      position: relative;
+      top: 10px;
+    }
+
+}
+
+
+
+
+@media (max-width: 1360px) {
+  .conteudo {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .conteudo {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .conteudo {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 450px) {
+  .conteudo {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

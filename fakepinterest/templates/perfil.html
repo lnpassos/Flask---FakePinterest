@@ -1,0 +1,206 @@
+{% extends "home.html" %}
+
+{% block titulo %}
+Perfil - {{ usuario.username }}
+{% endblock %}
+
+{% block body %}
+<body>
+{% include "navbar.html" %}
+
+
+
+
+        <!-- EM CONSTRUÇÃO!!
+          <div class="bloco-img-perfil">
+          <div class="img-perfil" onclick="exibirModal()">
+            <img src="{{url_for('static', filename='img_site/foto-perfil.jpg')}}" alt="img-perfil">
+          </div>
+      </div> -->
+
+      
+<div class="container">
+  {% if form %}
+  <form class="bloco-add-img" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+      <h2 class="username-title">{{ usuario.username }}</h2>
+
+      <div class="bloco-arquivo">
+        {% if form.foto %}
+          <label for="foto" class="botao-arquivo">
+            Novo Pin!
+            {{ form.foto(class="input-arquivo", id="foto") }}
+          </label>
+          <span id="imagem-arquivo"></span>
+        {% endif %}
+      </div>
+
+        {{ form.botao_confirma(class="botao-login") }}
+  </form>
+
+  {% else %}
+  <div class="bloco-add-img">
+      <h2 class="username-title">{{ usuario.username }}</h2>
+  </div>
+  {% endif %}
+
+
+  <div class="conteudo">
+    {% for foto in fotos %}
+        <div class="bloco-imagem">
+            <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+            <span class="post-usuario">{{foto.data_criacao.strftime('%d/%m/%Y')}}</span>
+            {% if foto.usuario == current_user %}
+                <form method="post" action="{{ url_for('delete_foto', id_foto=foto.id) }}" class="delete-form">
+                    <button class="delete-btn" type="button" onclick="confirmarExclusao('{{ foto.id }}')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                      <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                    </svg></button>
+                </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<!--
+
+AINDA EM CONSTRUÇÃO!!!
+
+<style>
+  /* Estilos para o modal */
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 20%;
+      text-align: center;
+      border-radius: 15px;
+  }
+
+  #alterar-foto-title {
+    padding-bottom: 25px;
+    color: rgb(93, 15, 112);
+    font-family: cursive;
+}
+
+ 
+  .escolher-foto-perfil,
+  .enviar-foto-perfil {
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: all.4s;
+    font-family: cursive;
+  }
+
+  .enviar-foto-perfil {
+    background-color: #ff0f33;
+    color: #fff;
+    margin-left: 10px;
+  }
+
+  .enviar-foto-perfil:hover {
+    background-color: #df4d63;
+  }
+
+  .escolher-foto-perfil {
+    position: relative;
+    right: 2%;
+    background-color: #333;
+    margin-right: 10px;
+    color: white;
+  }
+
+  .escolher-foto-perfil:hover {
+    background-color: #5a5a5a;
+  }
+
+  .enviar-foto-perfil {
+    background-color: brown;
+  }
+
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+</style> -->
+  <script>
+        // Função para exibir o modal ainda em construção!
+       /* function exibirModal() {
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    // Função para fechar o modal
+    function fecharModal() {
+        document.getElementById('modal').style.display = 'none';
+    } */
+
+      //  SCRIPT PARA MOSTRAR A IMAGEM SELECIONADA PARA ENVIO!
+      let input = document.getElementById("foto");
+      let imagemArquivo = document.getElementById("imagem-arquivo");
+
+      input.addEventListener("change", () => {
+        let inputImagem = document.querySelector("input[type=file]").files[0];
+
+        imagemArquivo.classList.add("visivel");
+        imagemArquivo.innerText = inputImagem.name;
+      });
+
+
+      // SSCRIPT PARA DELETAR IMAGEM!
+      function confirmarExclusao(id_foto) {
+        var confirmacao = confirm("Tem certeza que deseja excluir esta foto?");
+        if (confirmacao) {
+            var form = document.querySelector('.delete-form');
+            form.action = "/delete_foto/" + id_foto;
+            form.submit();
+        }
+    }
+    </script> 
+</body>
+{% endblock %}
+
+<!-- AINDA EM CONSTRUÇÃO!! -->
+
+<!-- Modal Para atualizar foto de perfil -->
+    <!--<div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="fecharModal()">&times;</span>
+          <h2 id="alterar-foto-title">Alterar Foto de Perfil</h2>
+          <!-- Seu formulário de atualização de foto de perfil aqui -->
+          <!-- <form method="POST" enctype="multipart/form-data" action="">
+              {{ form.csrf_token }}
+                <label for="foto" class="escolher-foto-perfil">
+                  Escolher!
+                    {{ form.foto(class="input-arquivo", id="foto") }}
+                </label>
+                <span id="imagem-arquivo"></span>
+                <button type="submit" class="enviar-foto-perfil">Enviar!</button>    
+          </form>
+      </div>
+    </div> -->
