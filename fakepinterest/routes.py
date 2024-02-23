@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect
+from flask import render_template, url_for, redirect, send_from_directory
 from fakepinterest import app, database, bcrypt
 from fakepinterest.forms import FormLogin, FormCriarConta, FormFoto
 from fakepinterest.models import Usuario, Post
@@ -39,6 +39,12 @@ def criarconta():
     return render_template("criarconta.html", form=form_criarconta)
 
 
+# Rota para upload de aquivo no Render
+@app.route("/uploads/<path:filename>")
+def custom_static(filename):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], filename, as_attachment=True)
+
+
 # Rota perfil!
 @app.route('/perfil/<id_usuario>', methods=["GET", "POST"])
 @login_required
@@ -52,9 +58,7 @@ def perfil(id_usuario):
 
             # Validação de nome pro arquivo
             nome_seguro = secure_filename(arquivo.filename)
-            caminho = os.path.join(os.path.abspath(os.path.dirname(__file__)),
-                               app.config["UPLOAD_FOLDER"], 
-                               nome_seguro)
+            caminho = os.path.join(app.config["UPLOAD_FOLDER"], nome_seguro)
             arquivo.save(caminho)
             foto = Post(imagem=nome_seguro, id_usuario=current_user.id)
             database.session.add(foto)

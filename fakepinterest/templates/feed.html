@@ -9,7 +9,7 @@
 
         {% for foto in fotos %}
         <a  href="{{ url_for('perfil', id_usuario=foto.id_usuario) }}" class="bloco-imagem">
-          <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" alt="Pinterest-img" />
+          <img src="{{ url_for('custom_static', filename='{}'.format(foto.imagem)) }}" alt="Pinterest-img" />
           <span class="name-user">{{foto.usuario.username}}</span><span class="post-usuario">{{foto.data_criacao.strftime('%d/%m/%Y')}}</span>
         </a>
         {% endfor %}

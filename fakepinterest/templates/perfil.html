@@ -48,7 +48,7 @@ Perfil - {{ usuario.username }}
   <div class="conteudo">
     {% for foto in fotos %}
         <div class="bloco-imagem">
-            <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+            <img src="{{ url_for('custom_static', filename='{}'.format(foto.imagem)) }}" />
             <span class="post-usuario">{{foto.data_criacao.strftime('%d/%m/%Y')}}</span>
             {% if foto.usuario == current_user %}
                 <form method="post" action="{{ url_for('delete_foto', id_foto=foto.id) }}" class="delete-form">
