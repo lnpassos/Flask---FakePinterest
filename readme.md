@@ -1,6 +1,6 @@
 # Hey guys! Tudo certo por aí!?
 
-### Aqui está meu projeto ainda em construção em Flask, realizando uma réplica próxima do Pinterest!
+### Aqui está meu projeto em Flask, realizando uma réplica próxima do Pinterest!
 
 link: https://flask-fakepinterest.onrender.com/
 
@@ -18,12 +18,7 @@ link: https://flask-fakepinterest.onrender.com/
     - `Não` coloquei mais validações para não ser algo `monótomo` para o usuário ficar criando, ja que é algo mais para `estudo`.
     - Estou `criando` uma função para entrar sem conta, apenas para `visualizar` o `Feed`.
 
-### Ideias futuras!
-- Usuário conseguir `acessar` sem Perfil.
-- `Ter` e `alterar` Foto de Perfil
-- Mensagens mais elaboradas de `Sucesso` e `Erro`
-- Likes nas postagens
-- Comentários nas postagens
+
 
 
 OBS: Esse requirements.txt foi para deploy do site, acabei esquecendo de rodar esse app em um ambiente virtual, por isso tantas bibliotecas..
